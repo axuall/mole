@@ -61,7 +61,15 @@ Install on **Windows** with PowerShell 5.1 or newer:
 irm https://raw.githubusercontent.com/Luqueee/mole/main/scripts/install.ps1 | iex
 ```
 
-On **Linux, macOS, or FreeBSD**, install with Go 1.26.4+ and Git available:
+On **macOS**, install from the Homebrew tap in this repo. The formula tracks `main` and the command is `axuall-mole`, because Homebrew Core already uses `mole` for an unrelated cleanup tool:
+
+```bash
+brew tap axuall/mole https://github.com/axuall/mole
+brew install axuall/mole/axuall-mole
+alias mole=axuall-mole   # optional, so the commands below match
+```
+
+On **Linux or FreeBSD**, install with Go 1.26.4+ and Git available:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Luqueee/mole/main/scripts/install.sh | sh
@@ -110,6 +118,19 @@ create a config interactively.
 | `mole version` · `mole help` | The obvious. |
 
 ## 📦 Install
+
+### Homebrew (macOS)
+
+[`Formula/axuall-mole.rb`](Formula/axuall-mole.rb) is this repo's tap. It builds `main` and installs the command as `axuall-mole`, so it can sit beside [Homebrew Core's `mole`](https://formulae.brew.sh/formula/mole).
+
+```bash
+brew tap axuall/mole https://github.com/axuall/mole
+brew install axuall/mole/axuall-mole
+```
+
+`brew tap` needs the repository URL because the formula lives here. Use the full formula name so Homebrew selects this tap. The commands in this README are written as `mole`; add `alias mole=axuall-mole` if you want them unchanged.
+
+Update from the latest `main` with `brew upgrade --fetch-HEAD axuall/mole/axuall-mole`. Remove it with `brew uninstall axuall-mole`.
 
 ### Installers
 
@@ -209,7 +230,8 @@ mole update -dry-run         # print what it would run, change nothing
 
 Unix updates need Go, Git, and curl or wget. Windows updates need PowerShell.
 For a `go install` setup, re-run
-`go install github.com/Luqueee/mole/cmd/mole@latest` instead.
+`go install github.com/Luqueee/mole/cmd/mole@latest` instead. A Homebrew
+install updates with `brew upgrade --fetch-HEAD axuall/mole/axuall-mole`.
 
 ### Uninstall
 
@@ -219,7 +241,8 @@ For a `go install` setup, re-run
 ```
 
 On Windows, run `.\scripts\uninstall.ps1` from a clone. For a `go install`
-setup, remove the binary from `$(go env GOPATH)/bin`.
+setup, remove the binary from `$(go env GOPATH)/bin`. A Homebrew install
+is removed with `brew uninstall axuall-mole`.
 
 ## 🛠️ Usage
 

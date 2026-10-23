@@ -65,7 +65,7 @@ On **macOS**, install from the Homebrew tap in this repo. The formula tracks `ma
 
 ```bash
 brew tap axuall/mole https://github.com/axuall/mole
-brew install axuall/mole/axuall-mole
+brew install --HEAD axuall/mole/axuall-mole
 alias mole=axuall-mole   # optional, so the commands below match
 ```
 
@@ -121,11 +121,11 @@ create a config interactively.
 
 ### Homebrew (macOS)
 
-[`Formula/axuall-mole.rb`](Formula/axuall-mole.rb) is this repo's tap. It builds `main` and installs the command as `axuall-mole`, so it can sit beside [Homebrew Core's `mole`](https://formulae.brew.sh/formula/mole).
+[`Formula/axuall-mole.rb`](Formula/axuall-mole.rb) is this repo's tap. `--HEAD` builds `main` and installs the command as `axuall-mole`, so it can sit beside [Homebrew Core's `mole`](https://formulae.brew.sh/formula/mole).
 
 ```bash
 brew tap axuall/mole https://github.com/axuall/mole
-brew install axuall/mole/axuall-mole
+brew install --HEAD axuall/mole/axuall-mole
 ```
 
 `brew tap` needs the repository URL because the formula lives here. Use the full formula name so Homebrew selects this tap. The commands in this README are written as `mole`; add `alias mole=axuall-mole` if you want them unchanged.
